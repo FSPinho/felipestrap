@@ -561,6 +561,17 @@ var DynamicList = function(rootEl, settings) {
 
 	}
 
+	this.doIncrementItem = function(name) {
+		
+		if( /[\w]+\[[\d]+\]\.[\w]+/.test(name) ) {
+			var index = parseInt( (name.match(/\[[\d]+\]+/))[0].replace("[", "").replace("]", "") );
+			return name.replace( /\[[\d]+\]+/, "[" + ++index + "]")
+		} 
+
+		return name;
+
+	}
+
 	this.sortItems = function() {
 		var items = $(this.settings.cloneableElement);
 		items.sort(function (a, b) {
@@ -689,11 +700,7 @@ var DynamicList = function(rootEl, settings) {
 
 			newItem.css("display", self.settings.defaultItemDisplay);
 
-			if(self.settings.autoIncrementID && newItem.attr("id") != undefined)
-				newItem.attr("id", self.getNextAttrBy(newItem.attr("id")));
-
-			if(self.settings.autoIncrementName && newItem.attr("name") != undefined)
-				newItem.attr("name", self.getNextAttrBy(newItem.attr("name")));
+			newItem.attr("name", self.doIncrementItem(newItem.attr("name")));
 
 			var setSetupFunc = function(rootEl) {
 
@@ -709,11 +716,7 @@ var DynamicList = function(rootEl, settings) {
 
 					} else {
 
-						if(self.settings.autoIncrementID && el.attr("id") != undefined)
-							el.attr("id", self.getNextAttrBy(el.attr("id")));
-
-						if(self.settings.autoIncrementName && $(this).attr("name") != undefined)
-							el.attr("name", self.getNextAttrBy(el.attr("name")));
+						el.attr("name", self.doIncrementItem(el.attr("name")));
 
 						setSetupFunc(el);
 
