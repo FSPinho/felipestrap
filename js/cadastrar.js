@@ -27,6 +27,7 @@ $(document).ready(function() {
 				
 				el.css("min-height", "0px");
 				el.css("min-width", "0px");
+				el.css("margin-left", "auto");
 				
 				var anim = new Animation(el).doSequentially(
 					new Animation().doAnimate(
@@ -75,6 +76,25 @@ $(document).ready(function() {
 
 						if(index != "") {
 							el = dynamicList.doEditItem(index, data);
+
+							var anim = new Animation(el).doSequentially(
+								new Animation().doAnimate(
+									{"margin-left": "-16px", specialEasing: {"margin-left": "linear"}},
+									{duration: 100, queue: false}
+								), 
+								new Animation().doAnimate(
+									{"margin-left": "16px", specialEasing: {"margin-left": "linear"}},
+									{duration: 100, queue: false}
+								), 
+								new Animation().doAnimate(
+									{"margin-left": "-16px", specialEasing: {"margin-left": "linear"}},
+									{duration: 100, queue: false}
+								), 
+								new Animation().doAnimate(
+									{"margin-left": "0px", specialEasing: {"margin-left": "linear"}},
+									{duration: 100, queue: false}
+								)
+							).doPlay();
 						}
 						else {
 							el = dynamicList.doAddItem(data);

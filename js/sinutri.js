@@ -50,58 +50,48 @@ var sn_base = function() {
 
 	var dialogCounter = 0;
 
-	var setupForm = function() {
-		
-		if($(".sn-mask-date").exists()) {
+	var setupForm = function(root) {
 
-			$(".sn-mask-date").mask("99/99/9999",{placeholder:"dd mm aaaa"});
+		root = root == undefined? "body": root;
 
-		}
+		if($(root + " .sn-date-picker").exists()) { 
 
-		if($(".sn-mask-phone").exists()) {
-
-			$(".sn-mask-phone").mask("(99) 99999-9999");
-
-		}
-
-		if($(".sn-date-picker").exists()) { 
-
-			$(".sn-date-picker").each(function(index, el) {
+			$(root + " .sn-date-picker").each(function(index, el) {
 				el = $(el);
 				var id = el.attr("id");
 				if (id == undefined) {
 					el.attr("id", "sn-date-picker-" + index);
 				}
 				var selector = "#" + id;
-				sn_base.doRegistryDatePicker(selector);
+				sn_base.doRegistryDatePicker(selector, $(root));
 			});
 
 		}
 
-		if($(".sn-time-picker").exists()) { 
+		if($(root + " .sn-time-picker").exists()) { 
 
-			$(".sn-time-picker").each(function(index, el) {
+			$(root + " .sn-time-picker").each(function(index, el) {
 				el = $(el);
 				var id = el.attr("id");
 				if (id == undefined) {
 					el.attr("id", "sn-time-picker-" + index);
 				}
 				var selector = "#" + id;
-				sn_base.doRegistryTimePicker(selector);
+				sn_base.doRegistryTimePicker(selector, $(root));
 			});
 
 		}
 
-		if($(".sn-date-time-picker").exists()) { 
+		if($(root + " .sn-date-time-picker").exists()) { 
 
-			$(".sn-date-time-picker").each(function(index, el) {
+			$(root + " .sn-date-time-picker").each(function(index, el) {
 				el = $(el);
 				var id = el.attr("id");
 				if (id == undefined) {
 					el.attr("id", "sn-date-time-picker-" + index);
 				}
 				var selector = "#" + id;
-				sn_base.doRegistryDateTimePicker(selector);
+				sn_base.doRegistryDateTimePicker(selector, $(root));
 			});
 
 		}
@@ -190,6 +180,21 @@ var sn_base = function() {
 		$(".sn-foreground").fadeOut(500);
 
 	}
+
+	var sortDivs = function() {
+
+		var items = $("body").children();
+
+		items.sort(function (a, b) {
+			var contentA = $(a).hasClass("dtp")? 3: $(a).hasClass("mdl-dialog")? 2: 1;
+			var contentB = $(b).hasClass("dtp")? 3: $(b).hasClass("mdl-dialog")? 2: 1;
+			return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+	   	});
+
+	   	items.each(function(i, el) {
+	   		$(el).parent().append(el);
+	   	});
+	}
 	
 	return {
 
@@ -231,7 +236,9 @@ var sn_base = function() {
 			dialogContent.remove();
 
 			dialog.attr("id", "sn-dialog-" + (dialogCounter++));
-			$("body").append(dialog);
+			
+			$("body").append(dialog);	
+			
 			dialog.find(".mdl-dialog__content").append(dialogContent);
 			dialog.find(".mdl-card__menu-close").click(function() { dialog.get(0).close(); });
 			dialog.find(".mdl-dialog__title").text(setts.title);
@@ -259,13 +266,18 @@ var sn_base = function() {
 				componentHandler.upgradeElement(el);
 			});
 
+			setupForm("#" + dialog.attr("id"));
+
+			sortDivs();
+
 			return dialog.get(0);
 
 
 		}, 
 
-		doRegistryDatePicker : function(el) {
+		doRegistryDatePicker : function(el, root) {
 
+			if(root === undefined) root = $("body");
 			if($(el).exists()) {
 
 				$(el).bootstrapMaterialDatePicker({
@@ -277,15 +289,19 @@ var sn_base = function() {
 					nowButton: true, 
 					cancelText: "Cancelar", 
 					okText: "OK", 
-					nowText: "Agora"
+					nowText: "Agora", 
+					parent: root
 				});
 
 			}
 
+			sortDivs();
+
 		}, 
 
-		doRegistryTimePicker : function(el) {
+		doRegistryTimePicker : function(el, root) {
 
+			if(root === undefined) root = $("body");
 			if($(el).exists()) {
 
 				$(el).bootstrapMaterialDatePicker({
@@ -297,15 +313,19 @@ var sn_base = function() {
 					nowButton: true, 
 					cancelText: "Cancelar", 
 					okText: "OK", 
-					nowText: "Agora"
+					nowText: "Agora", 
+					parent: root
 				});
 
 			}
 
+			sortDivs();
+
 		}, 
 
-		doRegistryDateTimePicker : function(el) {
+		doRegistryDateTimePicker : function(el, root) {
 
+			if(root === undefined) root = $("body");
 			if($(el).exists()) {
 
 				$(el).bootstrapMaterialDatePicker({
@@ -317,10 +337,13 @@ var sn_base = function() {
 					nowButton: true, 
 					cancelText: "Cancelar", 
 					okText: "OK", 
-					nowText: "Agora"
+					nowText: "Agora", 
+					parent: root
 				});
 
 			}
+
+			sortDivs();
 
 		}
 
@@ -921,8 +944,6 @@ var Animation = function(el) {
 	}
 
 	this._play = function(anim, onComplete) {
-
-		console.log("executando: " + anim.type);
 
 		var _self = this;
 
