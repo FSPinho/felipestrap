@@ -901,7 +901,7 @@ var DynamicList = function(rootEl, settings) {
 				item.find("*").remove();
 				item.remove();
 				self.settings.onItemRemoved(item);
-				this.sortItems();
+				self.sortItems();
 			}, 250);		
 
 		}
