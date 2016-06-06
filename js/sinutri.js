@@ -243,16 +243,20 @@ var sn_base = function() {
 			dialog.find(".mdl-card__menu-close").click(function() { dialog.get(0).close(); });
 			dialog.find(".mdl-dialog__title").text(setts.title);
 
-			for(var i = 0; i < setts.buttons.length; i++) {
-				var bs = setts.buttons[i];
-				button = $.parseHTML("<button class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\">" + bs.label + "</button>");
-				$(button).click(bs.action);
-				dialog.find(".mdl-dialog__actions").append(button);
-				for(k in bs.attrs)
-					$(button).attr(k, bs.attrs[k]);		
+			if(setts.buttons !== undefined)
+				for(var i = 0; i < setts.buttons.length; i++) {
+					
+					var index = parseInt(JSON.stringify(i));
+					//var bs = setts.buttons[i];
+					var bs = setts.buttons[index];
+					var button = $.parseHTML("<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\">" + bs.label + "</a>");
+					//$(button).click(bs.action);
+					$(button).click(bs.action);
+					dialog.find(".mdl-dialog__actions").append(button);
+					for(k in bs.attrs)
+						$(button).attr(k, bs.attrs[k]);		
 
-
-			}
+				}
 
 			if (!dialog.get(0).showModal) {
 				dialogPolyfill.registerDialog(dialog.get(0));

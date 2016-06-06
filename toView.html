@@ -84,6 +84,13 @@
 										mdl-cell mdl-cell--12-col
 										sn-padding--48 mdl-color--white">
 
+										<div class="mdl-cell mdl-cell--12-col">
+											<button id="sn-button-remove" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent mdl-color-text--white">Remover Avaliação
+											</button>
+										</div>
+
+										<div class="sn-form__hdivider"></div>
+
 										<!-- Text atribute -->
 										<div class="sn-attribute mdl-cell mdl-cell--6-col">
 											<div class="sn-attribute__title">Name</div>
@@ -96,6 +103,20 @@
 											<div class="sn-attribute__value">21 years</div>
 										</div>
 
+										<!-- Text atribute -->
+										<div class="sn-attribute mdl-cell mdl-cell--6-col">
+											<div class="sn-attribute__title">Status</div>
+											<div class="sn-attribute__value">Sad</div>
+										</div>
+
+										<!-- Text atribute -->
+										<div class="sn-attribute mdl-cell mdl-cell--6-col">
+											<div class="sn-attribute__title">Sexo</div>
+											<div class="sn-attribute__value">Undefined</div>
+										</div>
+
+										<div class="sn-form__hdivider"></div>
+
 										<!-- Boolean atribute -->
 										<label
 											class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-cell mdl-cell--6-col"
@@ -103,6 +124,12 @@
 											<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" disabled="true"/>
 											<span class="mdl-checkbox__label sn-attribute__title">Boolean Value</span>
 										</label>
+
+										<!-- Text atribute -->
+										<div class="sn-attribute mdl-cell mdl-cell--12-col">
+											<div class="sn-attribute__title">City</div>
+											<div class="sn-attribute__value">Madalena</div>
+										</div>
 
 									</div>
 
@@ -134,7 +161,7 @@
 		<div class="sn-foreground"></div>
 
 		<!-- Modal Content -->
-		<div id="modal-content-1">Modal content</div>
+		<div id="modal-content-1">Deseja remover essa avaliação?</div>
 
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
@@ -149,7 +176,27 @@
 			
 			$(document).ready(function() {
 				
-				// ...
+				var dialog = sn_base.doRegistryDialog({
+					title: "Remover Avaliação", 
+					dialog: "#modal-content-1", 
+					showButton: "#sn-button-remove", 
+					buttons: [
+						{
+							label: "Sim", 
+							action: function() {
+								alert("Sim clicked!");
+								dialog.close();
+							}
+						}, 
+						{
+							label: "Open google",
+							attrs: {href: "https://www.google.com"}, 
+							action: function() {
+								alert("Action 2!");
+							}
+						}
+					]
+				});
 
 			});
 
