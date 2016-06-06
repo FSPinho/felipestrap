@@ -901,13 +901,12 @@ var DynamicList = function(rootEl, settings) {
 				item.find("*").remove();
 				item.remove();
 				self.settings.onItemRemoved(item);
+				this.sortItems();
 			}, 250);		
 
 		}
 
 		self.showStatus("Removing");
-
-		this.sortItems();
 
 	}
 
