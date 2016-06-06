@@ -21,34 +21,6 @@ $(document).ready(function() {
 					dialog.showModal();
 				}
 				
-			}, 
-			onItemRemove: function(item) {
-				el = item;
-				
-				el.css("min-height", "0px");
-				el.css("min-width", "0px");
-				el.css("margin-left", "auto");
-				
-				var anim = new Animation(el).doSequentially(
-					new Animation().doAnimate(
-						{"border-radius": "50px", specialEasing: {"border-radius": "linear"}},
-						{duration: 100, queue: false}
-					),
-					new Animation().doAnimate(
-						{width: "72px", height: "72px", specialEasing: {width: "linear"}},
-						{duration: 100, queue: false}
-					),
-					new Animation().doAnimate(
-						{width: "0px", height: "0px", specialEasing: {width: "linear"}},
-						{duration: 50, queue: false}
-					)
-					
-				).doPlay();
-
-				setTimeout(function() {
-					dynamicList.doRemoveItem(item);
-				}, 250);				
-				
 			}
 		});
 
@@ -77,42 +49,11 @@ $(document).ready(function() {
 						if(index != "") {
 							el = dynamicList.doEditItem(index, data);
 
-							var anim = new Animation(el).doSequentially(
-								new Animation().doAnimate(
-									{"margin-left": "-16px", specialEasing: {"margin-left": "linear"}},
-									{duration: 100, queue: false}
-								), 
-								new Animation().doAnimate(
-									{"margin-left": "16px", specialEasing: {"margin-left": "linear"}},
-									{duration: 100, queue: false}
-								), 
-								new Animation().doAnimate(
-									{"margin-left": "-16px", specialEasing: {"margin-left": "linear"}},
-									{duration: 100, queue: false}
-								), 
-								new Animation().doAnimate(
-									{"margin-left": "0px", specialEasing: {"margin-left": "linear"}},
-									{duration: 100, queue: false}
-								)
-							).doPlay();
 						}
 						else {
 							el = dynamicList.doAddItem(data);
 
-							el.css("min-height", "0");
-							el.css("min-width", "0");
-							el.css("border-radius", "50px");
-							el.css("width", "72px");
-							var anim = new Animation(el).doSequentially(
-								new Animation().doAnimate(
-									{"width": "100%", specialEasing: {width: "linear"}},
-									{duration: 200, queue: false}
-								), 
-								new Animation().doAnimate(
-									{"border-radius": "2px", specialEasing: {"border-radius": "linear"}},
-									{duration: 50, queue: false}
-								)
-							).doPlay();
+							
 						}
 
 						$(dialog).find("#sn-exame-item-index").val("");
