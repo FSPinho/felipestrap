@@ -398,14 +398,15 @@
 }
 
 
-
+.sn-main-card .sn-card {
+	margin-bottom: 16px !important;
+}
 
 .sn-card {
 	
 	border-radius: 2px;
 	background-color: #fff;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-	min-height: 240px;
 	position: relative;
 	
 }
@@ -469,6 +470,20 @@
 	margin-bottom: 16px;
 }
 
+.sn-fab--bottom-right {
+	position: absolute;
+	right: 26px;
+	bottom: -26px;
+	z-index: 1000;
+}
+
+.sn-fab--top-right {
+	position: absolute;
+	right: 26px;
+	top: -26px;
+	z-index: 1000;
+}
+
 
 .sn-padding--16 { padding: 16px; }
 
@@ -515,6 +530,10 @@ table {
 
 	border: none !important;
 
+}
+
+.mdl-dialog__title {
+	font-size: 24px;
 }
 
 .mdl-ripple {

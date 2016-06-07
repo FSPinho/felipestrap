@@ -18,11 +18,7 @@
 
 		<style type="text/css">
 
-			.sn-fab {
-				position: absolute;
-				right: 26px;
-				bottom: -26px;
-			}
+			
 
 		</style>
 
@@ -58,89 +54,89 @@
 
 					<div class="mdl-layout__content">
 
+						<!-- Grid Principal -->
+
 						<div class="mdl-grid">
 
-							<div class="mdl-cell
+							<!-- Célula de informações do formulário -->
+
+							<div class="
+								mdl-cell
 								mdl-cell--7-col-desktop mdl-cell--1-offset-desktop
-								sn-card">
+								mdl-cell--8-col-tablet
+								mdl-cell--4-col-phone
+								mdl-grid mdl-grid--no-spacing
+								sn-main-card">
 								
-								<div class="mdl-grid mdl-grid--no-spacing">
+								<div class="mdl-cell mdl-cell--12-col sn-card sn-padding--48 mdl-color--teal">
+									
+									<div class="mdl-layout-title mdl-color-text--white">Avaliação Laboratorial</div>
+									
+									<button class="sn-fab--bottom-right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+										<i class="material-icons mdl-color-text--white">edit</i>
+									</button>
 
-									<div class="
-										mdl-layout-title
-										mdl-cell mdl-cell--12-col
-										sn-padding--48
-										mdl-color--teal-500 mdl-color-text--white">
-										Avaliação Laboratorial
+									<div class="sn-card__actions">
 
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored sn-fab">
-											<i class="material-icons mdl-color-text--white">edit</i>
-										</button>
-
-									</div>
-
-									<div class="
-										mdl-grid
-										mdl-cell mdl-cell--12-col
-										sn-padding--48 mdl-color--white">
-
-										<div class="mdl-cell mdl-cell--12-col">
-											<button id="sn-button-remove" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent mdl-color-text--white">Remover Avaliação
-											</button>
-										</div>
-
-										<div class="sn-form__hdivider"></div>
-
-										<!-- Text atribute -->
-										<div class="sn-attribute mdl-cell mdl-cell--6-col">
-											<div class="sn-attribute__title">Name</div>
-											<div class="sn-attribute__value">Felipe da Silva Pinho</div>
-										</div>
-
-										<!-- Text atribute -->
-										<div class="sn-attribute mdl-cell mdl-cell--6-col">
-											<div class="sn-attribute__title">Age</div>
-											<div class="sn-attribute__value">21 years</div>
-										</div>
-
-										<!-- Text atribute -->
-										<div class="sn-attribute mdl-cell mdl-cell--6-col">
-											<div class="sn-attribute__title">Status</div>
-											<div class="sn-attribute__value">Sad</div>
-										</div>
-
-										<!-- Text atribute -->
-										<div class="sn-attribute mdl-cell mdl-cell--6-col">
-											<div class="sn-attribute__title">Sexo</div>
-											<div class="sn-attribute__value">Undefined</div>
-										</div>
-
-										<div class="sn-form__hdivider"></div>
-
-										<!-- Boolean atribute -->
-										<label
-											class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-cell mdl-cell--6-col"
-											for="checkbox-1">
-											<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" disabled="true"/>
-											<span class="mdl-checkbox__label sn-attribute__title">Boolean Value</span>
-										</label>
-
-										<!-- Text atribute -->
-										<div class="sn-attribute mdl-cell mdl-cell--12-col">
-											<div class="sn-attribute__title">City</div>
-											<div class="sn-attribute__value">Madalena</div>
-										</div>
+										<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color-text--white">remover</button>
 
 									</div>
 
 								</div>
 
+								<div class="sn-card-top mdl-cell mdl-cell--12-col sn-card sn-padding--48 mdl-color--white mdl-grid">
 
+									<!-- Text atribute -->
+									<div class="sn-attribute mdl-cell mdl-cell--6-col">
+									        <div class="sn-attribute__title">Name</div>
+									        <div class="sn-attribute__value">Felipe da Silva Pinho</div>
+									</div>
+
+									<!-- Text atribute -->
+									<div class="sn-attribute mdl-cell mdl-cell--6-col">
+									        <div class="sn-attribute__title">Age</div>
+									        <div class="sn-attribute__value">21 years</div>
+									</div>
+
+									<!-- Text atribute -->
+									<div class="sn-attribute mdl-cell mdl-cell--6-col">
+									        <div class="sn-attribute__title">Status</div>
+									        <div class="sn-attribute__value">Sad</div>
+									</div>
+
+									<!-- Text atribute -->
+									<div class="sn-attribute mdl-cell mdl-cell--6-col">
+									        <div class="sn-attribute__title">Sexo</div>
+									        <div class="sn-attribute__value">Undefined</div>
+									</div>
+
+								</div>
+
+								<div class="sn-card-top mdl-cell mdl-cell--12-col sn-card sn-padding--48 mdl-color--white mdl-grid">
+									
+									<label
+								        class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-cell mdl-cell--6-col"
+								        for="checkbox-1">
+								        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" disabled="true"/>
+								        <span class="mdl-checkbox__label sn-attribute__title">Boolean Value</span>
+									</label>
+
+									<!-- Text atribute -->
+									<div class="sn-attribute mdl-cell mdl-cell--12-col">
+								        <div class="sn-attribute__title">City</div>
+								        <div class="sn-attribute__value">Madalena</div>
+									</div>
+
+								</div>
 
 							</div>
 
+							<!-- Célula de informações do paciente -->
+
 							<div class="mdl-cell
-								mdl-cell--3-col-desktop">
+								mdl-cell--3-col-desktop
+								mdl-cell--8-col-tablet
+								mdl-cell--4-col-phone">
 								
 								<div class="sn-card sn-padding--48">
 									<div class="mdl-layout-title">Informações</div>
