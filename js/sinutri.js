@@ -196,6 +196,12 @@ var sn_base = function() {
 	   	});
 	}
 	
+	var setupFab = function() {
+		$(".sn-float--launcher").click(function() {
+			$(".sn-float--launcher").parent().find(".sn-fab").toggleClass("sn-fab--hide");
+		});
+	}
+
 	return {
 
 		doInit : function() {
@@ -206,7 +212,9 @@ var sn_base = function() {
 
 			tryExecute(toggleDrawer, "sn_base", "Toggle drawer done!", "Toggle drawer error!");
 
-			tryExecute(showContent, "sn_base", "Show content done!", "Show content error!");			
+			tryExecute(showContent, "sn_base", "Show content done!", "Show content error!");	
+
+			tryExecute(setupFab, "sn_base", "Setup Fab done!", "Setup Fab error!");	
 
 		}, 
 
