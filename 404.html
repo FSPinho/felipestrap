@@ -16,8 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="css/sinutri.css">
 
 		<style type="text/css">
-			
-			
+
 
 		</style>
 
@@ -39,7 +38,7 @@
 
 			<div class="sn-main">
 				
-				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--grey-200">
+				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--teal">
 
 					<header class="mdl-layout__header">
     					
@@ -52,14 +51,16 @@
     				</header>
 
 					<div class="mdl-layout__content">
-	    				
-	    				<div class="sn-rounded-card">
-	    					<div class="sn-rounded-card__circle">
-	    						<b class="sn-rounded-card__icon sn-error-text">404</b>
-	    					</div>
-	    					<div class="sn-rounded-card__message">
-	    						Página não encontrada!
-	    					</div>
+
+	    				<div class="sn-rounded-card__container">
+	    					<div class="sn-rounded-card">
+		    					<div class="sn-rounded-card__circle">
+		    						<b class="sn-rounded-card__icon sn-error-text">404</b>
+		    					</div>
+		    					<div class="sn-rounded-card__message">
+		    						Página não encontrada!
+		    					</div>
+		    				</div>
 	    				</div>
 
 	    			</div>
@@ -73,6 +74,33 @@
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script defer type="text/javascript" src="js/material.min.js"></script>
 		<script type="text/javascript" src="js/sinutri.js"></script>
+
+		<script type="text/javascript">
+			
+			var icon = document.getElementById("button"),
+			    buttonText = document.getElementById("button-text"),
+			    animationToCheck = document.getElementById("animation-to-check"),
+			    animationToGreen = document.getElementById("animation-to-green"),
+			    animationToStar = document.getElementById("animation-to-star"),
+			    animationToYellow = document.getElementById("animation-to-yellow");
+
+			button.addEventListener('click', function() {
+			  
+			  if (button.classList.contains("saved")) {
+			    button.classList.remove("saved");
+			    animationToStar.beginElement();
+			    animationToYellow.beginElement();
+			    buttonText.innerHTML = "Save";
+			  } else {
+			    button.classList.add("saved");
+			    animationToCheck.beginElement();
+			    animationToGreen.beginElement();
+			    buttonText.innerHTML = "Saved!";
+			  }
+			  
+			}, false);
+
+		</script>
 
 	</body>
 

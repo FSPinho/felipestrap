@@ -8,6 +8,7 @@ $(document).ready(function() {
 			cloneableElement: ".sn-cloneable", 
 			removeButton: ".sn-exame-remove", 
 			editButton: ".sn-exame-edit", 
+			cloneButton: ".sn-exame-copy", 
 			onItemEdit: function(el, index) {
 
 				if(dialog != null) {

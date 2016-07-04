@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+
+		<title></title>
+
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="css/material.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font/material-icons.css">
+		<link rel="stylesheet" type="text/css" href="css/font/roboto.css">
+		<link rel="stylesheet" type="text/css" href="css/dialog-polyfill.css">
+		<link rel="stylesheet" type="text/css" href="css/sinutri.css">
+		<link rel="stylesheet" type="text/css" href="css/material-date-picker.css">
+		<link rel="stylesheet" type="text/css" href="css/paciente.css">
+
+		<style type="text/css">
+
+			.sn-card-paciente ul {
+				max-height: 320px;
+				overflow: auto;
+				margin: 0px;
+				padding: 0px;
+
+			}
+
+			.sn-card-list-container {
+				padding: 48px;
+				padding-top: 0px;
+			}
+
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="sn-container">
+			
+			<div class="sn-drawer-left">
+				
+				<div class="mdl-layout__header-row">
+
+					<span class="mdl-layout-title">Title</span>
+
+				</div>
+
+			</div>
+
+			<div class="sn-main">
+				
+				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--grey-200">
+
+					<header class="mdl-layout__header">
+    					
+    					<div class="mdl-layout__header-row">
+
+    						<a href="#" class="sn-breadcrumbs mdl-layout-title">SiNutri</a>
+    						<a href="#" class="sn-breadcrumbs mdl-layout-title">Paciente</a>
+
+    					</div>
+
+    				</header>
+
+					<div class="mdl-layout__content">
+
+						<!-- Grid Principal -->
+
+						<div class="mdl-grid">
+
+							<!-- Célula de informações do formulário -->
+
+							<div class="
+								mdl-cell
+								mdl-cell--10-col-desktop mdl-cell--1-offset-desktop
+								mdl-cell--8-col-tablet
+								mdl-cell--4-col-phone
+								mdl-grid 
+								sn-main-grid">
+								
+								<div class="mdl-cell mdl-cell--12-col sn-card">
+									
+									<div class="mdl-layout-title mdl-color-text--white sn-padding--48 mdl-color--teal">Paciente</div>
+									<div class="sn-padding--48 mdl-color--white">
+
+										<div class="mdl-grid mdl-grid--no-spacing">
+										
+											<!-- Text atribute -->
+											<div class="sn-attribute mdl-cell mdl-cell--4-col">
+										        <div class="sn-attribute__title">Nome</div>
+										        <div class="sn-attribute__value">Felipe da Silva Pinho</div>
+											</div>
+
+											<!-- Text atribute -->
+											<div class="sn-attribute mdl-cell mdl-cell--4-col">
+										        <div class="sn-attribute__title">Idade</div>
+										        <div class="sn-attribute__value">21 Anos</div>
+											</div>
+
+											<!-- Text atribute -->
+											<div class="sn-attribute mdl-cell mdl-cell--4-col">
+										        <div class="sn-attribute__title">Email</div>
+										        <div class="sn-attribute__value">felipe76857685@gmail.com</div>
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+								<div 
+									class="sn-card-paciente 
+										mdl-cell
+										mdl-cell--6-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone 
+										sn-card ">
+
+									<div class="mdl-grid mdl-grid--no-spacing">
+
+										<div class="mdl-cell mdl-cell--12-col sn-padding--48">
+											<div class="sn-card-title mdl-layout-title sn-display--inline">Anamnese</div>
+											<a class="sn-card-add mdl-button mdl-button--raised mdl-js-button mdl-color-text--white mdl-js-ripple-effect sn-float--right">ADICIONAR</a>
+										</div>
+
+										<div class="sn-card-list-container mdl-cell mdl-cell--12-col">
+											<ul class="sn-card-list mdl-list">
+												<li class="sn-card-list__item mdl-list__item mdl-list__item--one-line mdl-color--grey-200">
+													<span class="mdl-list__item-primary-content">
+														<span class="sn-card-list__item-text">12/12/2012</span>
+													</span>
+													<span class="mdl-list__item-secondary-content">
+														<button id="sn-anamnese-0" class="mdl-button mdl-js-button mdl-button--icon">
+															<i class="material-icons">more_vert</i>
+														</button>
+														<div class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="sn-anamnese-0">
+															<a class="mdl-menu__item">Visualizar</a>
+															<a class="mdl-menu__item">Editar</a>
+															<div class="mdl-menu__item--full-bleed-divider"></div>
+															<a class="mdl-menu__item">Excluir</a>
+														</div>
+													</span>
+
+												</li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+								
+							</div>
+
+	    				</div>
+
+	    			</div>
+
+				</div>
+
+			<div class="sn-main__foreground"></div>
+
+		</div>
+
+		<div class="sn-foreground"></div>
+
+		<!-- Modal Content -->
+		<div id="modal-content-1">Deseja remover essa avaliação?</div>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+		<script defer type="text/javascript" src="js/material.min.js"></script>
+		<script type="text/javascript" src="js/dialog-polyfill.js"></script>
+		<script type="text/javascript" src="js/sinutri.js"></script>
+		<script type="text/javascript" src="js/moment.js"></script>
+		<script type="text/javascript" src="js/material-date-picker.js"></script>
+
+		<script type="text/javascript">
+			
+			$(document).ready(function() {
+				
+				var cards = [
+					{name: "Anamnese", color: "red"}, 
+					{name: "Avaliação Antropométrica", color: "purple"}, 
+					{name: "Recordatório", color: "indigo"}, 
+					{name: "Prescrição", color: "blue"}, 
+					{name: "Inquérito", color: "green"}, 
+					{name: "Avaliação Laboratorial", color: "orange"}, 
+					{name: "Plano Alimentar", color: "brown"}
+				];
+
+				var textVariation = "600";
+				var backVariation = "500";
+
+				var cardTemplate = $(".sn-card-paciente");
+				cardTemplate.remove();
+
+				var index = 0;
+				for(k in cards) {
+
+					card = cards[k];
+					var newCard = cardTemplate.clone();
+					newCard.find(".sn-card-title").text( card.name );
+					newCard.find(".sn-card-title").addClass( "mdl-color-text--" + card.color + "-" + textVariation );
+					newCard.find(".sn-card-add").addClass( "mdl-color--" + card.color + "-" + backVariation );
+
+					var list = newCard.find(".sn-card-list");
+					var elements = parseInt(Math.random() * 30);
+					var itemTemplate = list.find(".sn-card-list__item");
+					itemTemplate.remove();
+					for(var i = 0; i < elements; i++) {
+						var item = itemTemplate.clone();
+						list.append(item);
+					}
+
+
+					$(".sn-main-grid").append(newCard);
+
+				}
+
+			});
+
+		</script>
+
+	</body>
+
+</html>

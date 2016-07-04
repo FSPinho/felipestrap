@@ -13,23 +13,73 @@
 		<link rel="stylesheet" type="text/css" href="css/font/material-icons.css">
 		<link rel="stylesheet" type="text/css" href="css/font/roboto.css">
 		<link rel="stylesheet" type="text/css" href="css/dialog-polyfill.css">
-		<link rel="stylesheet" type="text/css" href="https://rawgit.com/FelipePinhoUFC/felipestrap/master/css/material-date-picker.css">
-		<link rel="stylesheet" type="text/css" href="https://rawgit.com/FelipePinhoUFC/felipestrap/master/css/sinutri.css">
+		<link rel="stylesheet" type="text/css" href="css/material-date-picker.css">
+		<link rel="stylesheet" type="text/css" href="css/sinutri.css">
 		<link rel="stylesheet" type="text/css" href="css/cadastrar.css">
 
 	</head>
 
-	<body>
+	<body class="sn-theme-purple">
 
 		<div class="sn-container">
 			
 			<div class="sn-drawer-left">
 				
 				<div class="mdl-layout__header-row">
-
-					<span class="mdl-layout-title">Title</span>
+		
+					<span class="mdl-layout-title mdl-color-text--primary-dark">SiNutri</span>
 
 				</div>
+
+				<nav class="mdl-list">
+
+					<a class="mdl-navigation__link mdl-list__item mdl-js-ripple-effect" th:href="@{/nutricao/buscar}">
+						
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons mdl-list__item-icon">person</i>
+							Pacientes
+						</span>
+
+						<span class="mdl-ripple"></span>
+
+					</a>
+
+					<a class="mdl-navigation__link mdl-list__item mdl-js-ripple-effect" th:href="@{/nutricao/informacoes-graficas}">
+						
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons mdl-list__item-icon">show_chart</i>
+							Estatísticas
+						</span>
+
+						<span class="mdl-ripple"></span>
+
+					</a>
+
+					<a class="mdl-navigation__link mdl-list__item mdl-js-ripple-effect" th:href="@{/paciente/cadastrar/paciente}">
+						
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons mdl-list__item-icon">settings</i>
+							Cadastro de pacientes
+						</span>
+
+						<span class="mdl-ripple"></span>
+
+					</a>
+
+					<div class="mdl-layout-spacer"></div>
+
+					<a class="mdl-navigation__link mdl-list__item mdl-js-ripple-effect" th:href="@{/nutricao/sobre}">
+						
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons mdl-list__item-icon">info</i>
+							Sobre
+						</span>
+
+						<span class="mdl-ripple"></span>
+
+					</a>
+
+				</nav>
 
 			</div>
 
@@ -37,11 +87,27 @@
 				
 				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--grey-200">
 
-					<header class="mdl-layout__header">
+					<header class="mdl-layout__header mdl-color--purple">
     					
     					<div class="mdl-layout__header-row">
 
-    						<span class="mdl-layout-title">Title</span>
+    						<span class="mdl-layout-title">SiNutri</span>
+							<!-- Add spacer, to align navigation to the right -->
+							<div class="mdl-layout-spacer"></div>
+							<!-- Navigation -->
+
+							<button id="sn-menu-account" class="mdl-button mdl-js-button mdl-button--icon">
+								<i class="material-icons">person</i>
+							</button>
+
+							<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="sn-menu-account">
+
+								<li class="mdl-menu__item">Perfil</li>
+								<li class="mdl-menu__item">Conta</li>
+								<li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Another Action</li>
+								<a th:href="@{/j_spring_security_logout}"><li class="mdl-menu__item">Sair</li></a>
+
+							</ul>
 
     					</div>
 
@@ -51,79 +117,85 @@
 
 						<div class="mdl-grid">
 
-							<div class="mdl-cell
-								mdl-cell--7-col-desktop mdl-cell--1-offset-desktop
-								sn-card sn-padding--48">
+							<form class="
+									sn-form mdl-cell
+									mdl-cell--7-col-desktop mdl-cell--1-offset-desktop
+									mdl-cell--8-col-tablet
+									mdl-cell--4-col-phone
+									mdl-grid mdl-grid--no-spacing
+									sn-main-card"
+									action="#" th:action="@{/Paciente/__*{paciente.id}__/AvaliacaoLaboratorial/__*{id}__/Editar/}"
+									th:object="${avaliacaoLaboratorial}" method="post">
+			
+								<div class="mdl-cell mdl-cell--12-col sn-card sn-padding--48 mdl-color--white">
+										<div class="mdl-layout-title mdl-color-text--purple-600">Editar Avaliação Laboratorial</div>
+								</div>
 
-								<form class="sn-form" action="#" th:action="@{/Paciente/__*{paciente.id}__/AvaliacaoLaboratorial/__*{id}__/Editar/}" th:object="${avaliacaoLaboratorial}" method="post">
-				
-									<div class="mdl-grid">
+								<div class="sn-card-top mdl-cell mdl-cell--12-col sn-card sn-padding--48 mdl-color--white mdl-grid">
+									
+									<div class="sn-textfield mdl-cell mdl-cell--6-col">
+										<label class="sn-textfield__label" for="criadoEm">Data de criação</label> 
+										<input class="sn-textfield__input sn-date-picker" type="text" id="criadoEm" th:field="*{criadoEm}" th:value="*{criadoEm}"/>
+									</div>
+									
+									<div class="sn-textfield mdl-cell mdl-cell--6-col">
+										<label class="sn-textfield__label" for="atualizado">Última atualização</label> 
+										<input class="sn-textfield__input sn-date-picker" type="text" id="atualizado" th:field="*{atualizado}" th:value="*{atualizado}"/>
+									</div>
 
-										<div class="mdl-cell mdl-cell--8-col">
-											<div class="mdl-layout-title">Editar Avaliação Laboratorial</div>
-										</div>
+									<div class="mdl-cell mdl-cell--12-col">
+										<label class="sn-textfield__label">Exames</label> 
+										<div class="sn-list-exames-container mdl-color--grey-200">
+											<ul class="sn-list-exames mdl-list">
 
-										<div class="sn-form__hdivider"></div>
-										
-										<div class="sn-textfield mdl-cell mdl-cell--6-col">
-											<label class="sn-textfield__label" for="criadoEm">Data de criação</label> 
-											<input class="sn-textfield__input sn-date-picker" type="text" id="criadoEm" th:field="*{criadoEm}" th:value="*{criadoEm}"/>
-										</div>
-										
-										<div class="sn-textfield mdl-cell mdl-cell--6-col">
-											<label class="sn-textfield__label" for="atualizado">Última atualização</label> 
-											<input class="sn-textfield__input sn-date-picker" type="text" id="atualizado" th:field="*{atualizado}" th:value="*{atualizado}"/>
-										</div>
-
-										<div class="mdl-cell mdl-cell--12-col">
-											<label class="sn-textfield__label">Exames</label> 
-											<div class="sn-list-exames-container mdl-color--grey-200">
-												<ul class="sn-list-exames mdl-list">
-													<li name="felipe[0].felipe" class="mdl-list__item mdl-list__item--two-line mdl-shadow--2dp mdl-color--white sn-cloneable sn-rounded-item sn-square-item">
-														<span class="mdl-list__item-primary-content">
-															<span class="sn-exame-type">Exame tal</span>
-															<span class="mdl-list__item-sub-title sn-exame-value">5.56 kg</span>
-														</span>
-														<span class="mdl-list__item-secondary-content">
-															<button type="button" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored sn-exame-edit">
+												<li name="felipe[0].felipe" class="mdl-list__item mdl-list__item--two-line mdl-shadow--2dp mdl-color--white sn-cloneable sn-rounded-item sn-square-item">
+													<span class="mdl-list__item-primary-content">
+														<span class="sn-exame-type">Exame tal</span>
+														<span class="mdl-list__item-sub-title sn-exame-value">5.56 kg</span>
+													</span>
+													<span class="mdl-list__item-secondary-content">
+														<button type="button" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored sn-exame-edit">
 		  													<i class="material-icons">edit</i>
 		  												</button>
-														</span>
-														<span class="mdl-list__item-secondary-content">
+													</span>
+													<span class="mdl-list__item-secondary-content">
+		  												<button type="button" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored sn-exame-copy">
+		  													<i class="material-icons">content_copy</i>
+		  												</button>
+													</span>
+													<span class="mdl-list__item-secondary-content">
 		  												<button type="button" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored sn-exame-remove">
 		  													<i class="material-icons">close</i>
 		  												</button>
-														</span>
-													</li>
-												</ul>
+													</span>
+												</li>
 
-												<div class="sn-list-exames__actions" >
-													<button id="sn-add-exame-button" type="button" class="mdl-button mdl-button--primary mdl-js-button mdl-js-ripple-effect">Adicionar Exame</button>
-												</div>
+											</ul>
 
+											<div class="sn-list-exames__actions" >
+												<button id="sn-add-exame-button" type="button" class="mdl-button mdl-button--primary mdl-js-button mdl-js-ripple-effect mdl-color-text--purple-600">Adicionar Exame</button>
 											</div>
-												
-										</div>
-										
-										<div class="sn-textfield mdl-cell mdl-cell--12-col">
-											<label class="sn-textfield__label" for="sn-text">Observação:</label>
-											<textarea class="sn-textfield__input" type="text" id="sn-text" th:field="*{observacao}" th:value="*{observacao}"></textarea>
-										</div>
-
-										<div class="sn-form-actions">
-
-											<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" >Salvar</button> 
-											<button type="button" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect" >Cancelar</button>
 
 										</div>
+											
+									</div>
+									
+									<div class="sn-textfield mdl-cell mdl-cell--12-col">
+										<label class="sn-textfield__label" for="sn-text">Observação:</label>
+										<textarea class="sn-textfield__input" type="text" id="sn-text" th:field="*{observacao}" th:value="*{observacao}"></textarea>
+									</div>
+
+									<div class="sn-form-actions">
+
+										<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-color--purple-600 mdl-color-text--white mdl-js-ripple-effect" >Salvar</button> 
+										<button type="button" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect mdl-color-text--purple-600" >Cancelar</button>
 
 									</div>
-								</form>
 
-							</div>
+								</div>
+							</form>
 
-							<div class="mdl-cell
-								mdl-cell--3-col-desktop">
+							<div class="mdl-cell mdl-cell--3-col-desktop">
 								<div class="sn-card sn-padding--48">
 									<div class="mdl-layout-title">Informações</div>
 
@@ -132,9 +204,9 @@
 								</div>
 							</div>
 
-	    				</div>
+						</div>
 
-	    			</div>
+    				</div>
 
 				</div>
 

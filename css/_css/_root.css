@@ -1,0 +1,59 @@
+:root {
+	
+	--color-primary: #009688;
+	--color-primary-dark: #00796B;
+	--color-primary-contrast: #fff;
+	--color-primary-hover: #4DB6AC;
+	--color-primary-active: #B2DFDB;
+	
+	--color-accent: #FF5722;
+	--color-accent-contrast: #fff;
+	--color-accent-hover: #FF8A65;
+	--color-accent-active: #FFCCBC;
+	
+	/* blue-grey */
+	--color-default--500: #90A4AE;
+	--color-default--700: #607D8B;
+	--color-default--900: #455A64;
+	
+	/* blue-grey */
+	--color-primary--500: #607D8B;
+	--color-primary--700: #455A64;
+	--color-primary--900: #263238;
+	
+	/* teal */
+	--color-success--500: #009688;
+	--color-success--700: #00796B;
+	--color-success--900: #004D40;
+	
+	/* blue */
+	--color-info--500: #2196F3;
+	--color-info--700: #1976D2;
+	--color-info--900: #0D47A1;
+	
+	/* deep-orange */
+	--color-warning--500: #FF5722;
+	--color-warning--700: #E64A19;
+	--color-warning--900: #BF360C;
+	
+	/* red */
+	--color-danger--500: #F44336;
+	--color-danger--700: #D32F2F;
+	--color-danger--900: #B71C1C;
+
+	--shadow--2dp: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+	--animation: all 0.2s ease;
+	--animation--2s: all 0.2s ease;
+	--animation--3s: all 0.3s ease;
+	--animation--4s: all 0.4s ease;
+	--animation--5s: all 0.5s ease;
+	--animation--6s: all 0.6s ease;
+	--animation--7s: all 0.7s ease;
+	--animation--8s: all 0.8s ease;
+	--animation--9s: all 0.9s ease;
+	--animation--10s: all 1s ease;
+
+	--animation--bounce: all 0.2s ease;
+
+}

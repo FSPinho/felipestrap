@@ -22,7 +22,7 @@
 .dtp table.dtp-picker-days tr > td {  font-weight: 700; font-size: 0.8em; text-align: center; padding: 0.5em 0.3em; }
 .dtp table.dtp-picker-days tr > td > span.dtp-select-day { color: #BDBDBD!important; }
 .dtp table.dtp-picker-days tr > td > a, .dtp .dtp-picker-time > a { color: #212121; text-decoration: none; padding: 0.4em 0.5em 0.5em 0.6em; border-radius: 50%!important; }
-.dtp table.dtp-picker-days tr > td > a.selected{ background: var(--color-primary); color: #fff; }
+.dtp table.dtp-picker-days tr > td > a.selected{ background: #555; color: #fff; }
 .dtp table.dtp-picker-days tr > td > a.dtp-select-day { position: relative; }
 .dtp table.dtp-picker-days tr > th { color: #757575; text-align: center; font-weight: 700; padding: 0.4em 0.3em; }
 
@@ -33,7 +33,7 @@
 .dtp .p80 { width: 80%; display: inline-block; }
 
 .dtp a.dtp-meridien-am, .dtp a.dtp-meridien-pm { position: relative; top: 10px; color: #212121; font-weight: 500; padding: 0.7em 0.5em; border-radius: 50%!important;text-decoration: none; background: #eee; font-size:1em; }
-.dtp .dtp-actual-meridien a.selected { background: var(--color-primary-dark); color: #fff; }
+.dtp .dtp-actual-meridien a.selected { background: #555; color: #fff; }
 
 .dtp .dtp-picker-time > .dtp-select-hour { cursor: pointer; }
 .dtp .dtp-picker-time > .dtp-select-minute { cursor: pointer; }
