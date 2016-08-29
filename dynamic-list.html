@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+
+		<title></title>
+
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="css/material.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font/material-icons.css">
+		<link rel="stylesheet" type="text/css" href="css/font/roboto.css">
+		<link rel="stylesheet" type="text/css" href="css/dialog-polyfill.css">
+		<link rel="stylesheet" type="text/css" href="css/sinutri.css">
+
+		<style type="text/css">
+
+			.l1 {
+				background-color: #ff0000;
+				padding: 16px;
+			}
+
+			.l2 {
+				background-color: #00ff00;
+				padding: 16px;
+			}
+
+			.l3 {
+				background-color: #0000ff;
+				padding: 16px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="sn-container">
+			
+			<div class="sn-drawer-left">
+				
+				<div class="mdl-layout__header-row">
+
+					<span class="mdl-layout-title">Title</span>
+
+				</div>
+
+			</div>
+
+			<div class="sn-main">
+				
+				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--grey-200">
+
+					<header class="mdl-layout__header">
+    					
+    					<div class="mdl-layout__header-row">
+
+    						<span class="mdl-layout-title">Title</span>
+
+    					</div>
+
+    				</header>
+
+					<div class="mdl-layout__content">
+
+						<div class="mdl-grid">
+
+							<div class="mdl-cell
+								mdl-cell--7-col-desktop mdl-cell--1-offset-desktop
+								sn-card sn-padding--48">
+			    				
+								<div class="mdl-layout-title">Form</div>
+
+								<div class="list-0 l1">
+									<div class="cloneable-0" name="item[0]">Item
+
+										<div class="list-1 l2">
+											<div class="cloneable-1" name="item[0].item[0]">Item
+												<button class="remove-item-1">
+													Remove Item
+												</button>
+											</div>
+											<button class="add-item-1">
+												Add Item
+											</button>
+										</div>
+
+										<button class="remove-item-0">
+											Remove Item
+										</button>
+									</div>
+									<button class="add-item-0">
+										Add Item
+									</button>
+								</div>
+
+							</div>
+
+							<div class="mdl-cell
+								mdl-cell--3-col-desktop 
+								sn-card sn-padding--48">
+
+								<div class="mdl-layout-title">Informações</div>
+							</div>
+
+	    				</div>
+
+	    			</div>
+
+				</div>
+
+			<div class="sn-main__foreground"></div>
+
+		</div>
+
+		<div class="sn-foreground"></div>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+		<script defer type="text/javascript" src="js/material.min.js"></script>
+		<script type="text/javascript" src="js/dialog-polyfill.js"></script>
+		<script type="text/javascript" src="js/sinutri.js"></script>
+
+		<script type="text/javascript">
+			
+		$(document).ready(function() {
+
+			componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
+
+				$(".list-1").dynamicList({
+					addButton: ".add-item-1", 
+					removeButton: ".remove-item-1", 
+					cloneableElement: ".cloneable-1", 
+					recurssiveIndex: 2
+				});
+
+				$(".list-0").dynamicList({
+					addButton: ".add-item-0", 
+					removeButton: ".remove-item-0", 
+					cloneableElement: ".cloneable-0", 
+					recurssiveIndex: 1
+				});
+					
+			});
+		});
+
+		</script>
+
+	</body>
+
+</html>
